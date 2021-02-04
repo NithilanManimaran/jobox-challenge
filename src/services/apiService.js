@@ -1,7 +1,7 @@
 //service functions for fetching api data
 
 export const getDogPhotos = () => {
-    return fetch(`${process.env.REACT_APP_API_LINK}breeds/image/random/10`)
+    return fetch(`https://dog.ceo/api/breeds/image/random/10`)
         .then(async (res) => {
             let data = await res.json()
             let ret = createReturnObj(data.message);
@@ -13,7 +13,7 @@ export const getDogPhotos = () => {
 export const getDogPhotosByBreed = (type) => {
     let type_in_url = type.includes('-') ? type.substring(0, 1).toLowerCase() + type.substring(1, type.indexOf('-')) + '/' + type.substring(type.indexOf('-') + 1, type.length) :
         type.substring(0, 1).toLowerCase() + type.substring(1, type.length);
-    return fetch(`${process.env.REACT_APP_API_LINK}breed/${type_in_url}/images/random/10`)
+    return fetch(`https://dog.ceo/api/breed/${type_in_url}/images/random/10`)
         .then(async (res) => {
             let data = await res.json()
             let ret = createReturnObj(data.message);
