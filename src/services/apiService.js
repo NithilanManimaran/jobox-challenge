@@ -23,7 +23,7 @@ export const getDogPhotosByBreed = (type) => {
 }
 
 export const getBreedsList = () => {
-    return fetch(`${process.env.REACT_APP_API_LINK}breeds/list/all`)
+    return fetch(`https://dog.ceo/api/breeds/list/all`)
         .then(async (res) => {
             let data = await res.json()
             let ret = createBreedList(data.message);
